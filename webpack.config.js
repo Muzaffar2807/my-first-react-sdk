@@ -1,7 +1,7 @@
 const path = require("path");
 
-module.exports = { 
-    mode: "development",
+module.exports = {
+  mode: "development",
   entry: "./src/index.js",
   output: {
     path: path.resolve(__dirname, "dist"),
@@ -22,6 +22,11 @@ module.exports = {
         use: {
           loader: "babel-loader",
         },
+      }
+      ,
+      {
+        test: /\.css$/,
+        use: ["style-loader", "css-loader"],
       },
     ],
   },

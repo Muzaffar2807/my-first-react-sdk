@@ -1,0 +1,10 @@
+.main-container{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    height: 90vh;
+}
+.text-color{
+    color: "red";
+}
