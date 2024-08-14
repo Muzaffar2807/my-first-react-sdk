@@ -1,25 +1,17 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import PropTypes from "prop-types";
-import "./MyComponent.css";
-import reactToWebComponent from "react-to-webcomponent";
-import { defineCustomElements } from "@webcomponents/custom-elements";
+class HelloWorld extends HTMLElement {
+  connectedCallback() {
+    const shadowRoot = this.attachShadow({ mode: "open" });
+    const template = document.createElement("template");
+    template.innerHTML = `
+      <style>
+        h1 {
+          color: blue;
+        }
+      </style>
+      <h1>Hello, World!</h1>
+    `;
+    shadowRoot.appendChild(template.content.cloneNode(true));
+  }
+}
 
-// The original React component
-const MyComponent = ({ text }) => (
-  <div className="main-container">
-    <h1 className="text-color">Hello from react</h1>
-  </div>
-);
-
-MyComponent.propTypes = {
-  text: PropTypes.string.isRequired,
-};
- 
-const MyWebComponent = reactToWebComponent(MyComponent, React, ReactDOM);
- 
-customElements.define("my-web-component", MyWebComponent);
- 
-defineCustomElements(window);
-
-export default MyComponent
+customElements.define("hello-world", HelloWorld);
