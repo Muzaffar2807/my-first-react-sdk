@@ -8,7 +8,7 @@ import { defineCustomElements } from "@webcomponents/custom-elements";
 // The original React component
 const MyComponent = ({ text }) => (
   <div className="main-container">
-    <h1 className="text-color">{text}</h1>
+    <h1 className="text-color">Hello from react</h1>
   </div>
 );
 
@@ -21,3 +21,5 @@ const MyWebComponent = reactToWebComponent(MyComponent, React, ReactDOM);
 customElements.define("my-web-component", MyWebComponent);
  
 defineCustomElements(window);
+
+export default MyComponent
