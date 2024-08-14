@@ -7,9 +7,11 @@ const MyComponent = ({ text }) => (
     <h1 className="text-color">{text}</h1>
   </div>
 );
+ 
 
 MyComponent.propTypes = {
   text: PropTypes.string.isRequired,
 };
 
 export default MyComponent;
+ 
